@@ -29,7 +29,8 @@ In addition to being published and available at <a href="https://hallways.cap.gs
 
 The URL for the API is `https://api.gsa.gov/acquisition/cap/v1/`, and it exposes 4 routes to query data:
 
-- `/tag-groups/<group id>/`
+- `/tag-groups`
+- `/tag-groups/<id>/`
 - `/search/documents`
 - `/search/documents/<keyword>`
 
@@ -174,6 +175,14 @@ Search Documents API:
     ]
   }
 ```
+Note that it has the following properties:
+
+- `id`: The primary key of the data point
+- `title`: The name of the document
+- `description`: The description of the document
+- `agency`: The name of the data point's agency
+- `type`: The type of document
+
 Tag Group API
 
 ```
@@ -195,14 +204,11 @@ Tag Group API
     ]
   }
 ```
-
 Note that it has the following properties:
 
 - `id`: The primary key of the data point
-- `title`: The name of the document
-- `description`: The description of the document
-- `agency`: The name of the data point's agency
-- `type`: The type of document
+- `label`: The name of the tag group
+- `description`: The description of the tag group
 
 ## Querying documents - API Calls
 
