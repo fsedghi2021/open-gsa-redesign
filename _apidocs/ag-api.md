@@ -30,9 +30,8 @@ In addition to being published and available at <a href="https://hallways.cap.gs
 The URL for the API is `https://api.gsa.gov/acquisition/cap/v1/`, and it exposes 4 routes to query data:
 
 - `/tag-groups/<group id>/`
+- `/search/documents`
 - `/search/documents/<keyword>`
-- `/documents`
-- `/documents/<document id>`
 
 <p><small><a href="#">Back to top</a></small></p>
 
@@ -133,8 +132,10 @@ The response represents the rows in the `data` array in the JSON reports that ca
 
 They are returned as an array of JSON objects. Here is an example of one such object:
 
+Search Documents API:
+
 ```
-{
+ {
     "id": 0,
     "self": "string",
     "title": "string",
@@ -173,6 +174,27 @@ They are returned as an array of JSON objects. Here is an example of one such ob
     ]
   }
 ```
+Tag Group API
+
+```
+  {
+    "data": [
+      {
+        "id": 0,
+        "label": "string",
+        "self": "string",
+        "url": "string",
+        "slug": "string",
+        "description": "string",
+        "icon": "string",
+        "tags": {},
+        "style": 0,
+        "hidden": "string",
+        "weight": 0
+      }
+    ]
+  }
+```
 
 Note that it has the following properties:
 
@@ -193,9 +215,9 @@ Documents can be queried...
 
 ## Filtering/Sorting documents by parameters
 
-Documents can be queried by filtering/sorting ?filter[key]=value&sorted
+Documents can be queried by filtering/sorting ?filter[key]=value&sort[label]
 
-Ex. /documents?filter[id]=4138
+Ex. /search/documents?filter[id]=4138
 
 It will return document id 4138. In this case, it is also equivalent to /documents/4138
 
